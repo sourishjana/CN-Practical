@@ -6,7 +6,6 @@
 
 void add(char* s1,char* s2,int n,char* res){
   char carry='0';
-  //char res[n];
   for(int i=n-1; i>=0; i--){
       int c=0;
       if(carry=='1') c++;
@@ -46,8 +45,8 @@ void onesc(char* arr,int n){
 
 
 int main(){
-  int n=4,m=4;
-  char str[] = "1001.1100.1010.0001.1101";
+    int n=4,m=4;
+    char str[] = "1001.1100.1010.0001.1101";
 	int init_size = strlen(str);
 	char delim[] = ".";
 

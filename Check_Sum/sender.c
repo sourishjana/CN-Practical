@@ -4,9 +4,8 @@
 #include<math.h>
 
 
-void add(char* s1,char* s2,int n,char* res){
+void addSum(char* s1,char* s2,int n,char* res){
     char carry='0';
-    //char res[n];
     for(int i=n-1; i>=0; i--){
         int c=0;
         if(carry=='1') c++;
@@ -30,15 +29,14 @@ void add(char* s1,char* s2,int n,char* res){
             car[i]='0';
         }
         car[n-1]='1';
-        //strcpy(ans,res);
         for(int i=0;i<n;i++){
             ans[i]=res[i];
         }
-        add(ans,car,n,res);
+        addSum(ans,car,n,res);
     }
 }
 
-void onesc(char* arr,int n){
+void onescomplement(char* arr,int n){
     for(int i=0;i<n;i++){
         if(arr[i]=='0') arr[i]='1';
         else arr[i]='0';
@@ -73,7 +71,7 @@ int main(){
       char res[m];
       char inter[m];
 
-      add(ans,packet[i],m,res);
+      addSum(ans,packet[i],m,res);
 
       for(int j=0;j<m;j++){
           ans[j]=res[j];
@@ -87,10 +85,44 @@ int main(){
 
   }
 
-  onesc(ans,m);
+  onescomplement(ans,m);
   for(int j=0;j<m;j++){
       codeword[k++]=ans[j];
   }
   printf("%s",codeword);
   return 0;
 }
+
+
+
+
+/*
+
+1100
+1010    
+
+0110 
+1100  
+   1
+
+0011 
+1111
+   1
+
+0011 
+   1
+   
+0100 -> 1011
+
+
+1100.1010.1100.1111.1011
+
+0100
+1011
+
+1111
+
+0000
+
+
+*/

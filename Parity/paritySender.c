@@ -8,7 +8,7 @@ int main(){
   printf("Enter the data stream: ");
   fgets(stream, sizeof(stream), stdin);
   do{
-    printf("Enter 1 for even parity check. 2 for odd parity check. 3 to exit: ");
+    printf("1 even parity. \n2 odd parity. \n3 exit:\n");
     scanf("%d", &prompt);
     for(int i=0; i<strlen(stream); i++){
       if(stream[i] == '1')  count++;
@@ -46,10 +46,34 @@ int main(){
 
       case 3 : return 0;
       default:
-        printf("Enter the correct choice\n");
+        printf("Wrong input\n");
     }
 
   }while(1);
 
   return 0;
 }
+
+
+
+/*
+
+101000011
+
+no of 1's = 4 = even
+
+even parity: (as the no of 1's are even) -> add 0
+
+1010000110
+
+101000000 0
+
+
+odd parity: (if no of 1's are even -> add 1 -> make it odd)
+
+
+disadvantage:
+It can only detect only one bit error
+
+
+*/
